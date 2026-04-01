@@ -1,105 +1,103 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>문주현 | Game Developer</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>문주현 | 예비 게임 개발자</title>
+    <style>
+        /* 전체 배경 및 폰트 설정 */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Pretendard', 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;
+            background-color: #1a1a2e; /* 다크 네이비 배경 */
+            color: #eaeaea; /* 밝은 회색 텍스트 */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        /* 메인 콘텐츠를 담는 박스 */
+        .container {
+            background-color: #16213e;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            max-width: 600px;
+            width: 90%;
+            text-align: center;
+            border: 2px solid #0f3460;
+        }
+
+        /* 이름 (포인트 컬러) */
+        h1 {
+            color: #e94560; /* 네온 핑크/레드 계열 포인트 */
+            font-size: 2.8em;
+            margin-bottom: 10px;
+            margin-top: 0;
+        }
+
+        /* 소제목 (나이, 직업) */
+        .subtitle {
+            color: #43bccd; /* 민트/블루 계열 포인트 */
+            font-size: 1.2em;
+            margin-bottom: 30px;
+            font-weight: bold;
+        }
+
+        /* 본문 텍스트 */
+        p {
+            line-height: 1.7;
+            font-size: 1.1em;
+            margin-bottom: 20px;
+            word-break: keep-all;
+        }
+
+        /* 하단 태그 섹션 */
+        .tags {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #0f3460;
+        }
+
+        .tag {
+            display: inline-block;
+            background-color: #e94560;
+            color: white;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            margin: 5px;
+            font-weight: bold;
+            transition: transform 0.2s; /* 마우스 오버 시 애니메이션 준비 */
+        }
+
+        .tag:hover {
+            transform: scale(1.1); /* 마우스를 올리면 살짝 커지는 효과 */
+            cursor: pointer;
+        }
+    </style>
 </head>
-
-<body style="margin:0; font-family: 'Segoe UI', sans-serif; background:black; color:white; overflow:hidden;">
-
-  <!-- 배경 애니메이션 -->
-  <div style="
-    position:fixed;
-    width:100%;
-    height:100%;
-    background:radial-gradient(circle at center, #0f172a, black);
-    z-index:-1;
-  "></div>
-
-  <!-- 메인 카드 -->
-  <div style="
-    height:100vh;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-  ">
-    <div style="
-      width:700px;
-      max-width:90%;
-      padding:50px;
-      border-radius:20px;
-      background:rgba(0,0,0,0.6);
-      backdrop-filter: blur(10px);
-      box-shadow:0 0 30px rgba(0,255,255,0.3);
-      text-align:center;
-      animation:fadeIn 2s ease;
-    ">
-
-      <h1 style="
-        font-size:48px;
-        margin-bottom:10px;
-        color:#00ffff;
-        text-shadow:0 0 15px #00ffff;
-      ">
-        문주현
-      </h1>
-
-      <p style="font-size:20px; color:#94a3b8;">
-        고등학교 1학년 | 미래의 게임개발자 🎮
-      </p>
-
-      <p style="
-        margin-top:25px;
-        font-size:18px;
-        line-height:1.8;
-        color:#e2e8f0;
-      ">
-        게임을 사랑하고, 직접 게임을 만드는 것을 목표로 하고 있습니다.<br>
-        앞으로 다양한 기술을 배우며<br>
-        사람들에게 재미와 감동을 주는 게임을 만들고 싶습니다.
-      </p>
-
-      <!-- 스킬 느낌 -->
-      <div style="margin-top:30px;">
-        <h2 style="color:#38bdf8;">🚀 목표</h2>
-        <p style="color:#cbd5e1;">
-          창의적인 게임 제작 + 많은 사람들에게 즐거움 제공
+<body>
+    <div class="container">
+        <h1>문주현</h1>
+        <div class="subtitle">🎮 고등학교 1학년 | 예비 게임 개발자</div>
+        
+        <p>
+            안녕하세요! 제 GitHub 페이지에 오신 것을 환영합니다.<br>
+            저는 사람들에게 잊지 못할 즐거움을 선사하는 <strong>게임 개발자</strong>를 꿈꾸고 있습니다.
         </p>
-      </div>
-
-      <!-- 버튼 -->
-      <div style="margin-top:35px;">
-        <a href="https://github.com/" target="_blank" style="
-          display:inline-block;
-          padding:12px 25px;
-          border-radius:30px;
-          background:#00ffff;
-          color:black;
-          font-weight:bold;
-          text-decoration:none;
-          box-shadow:0 0 15px #00ffff;
-          transition:0.3s;
-        " onmouseover="this.style.background='#22d3ee'"
-           onmouseout="this.style.background='#00ffff'">
-          GitHub 보러가기
-        </a>
-      </div>
-
-      <p style="margin-top:30px; font-size:14px; color:#64748b;">
-        © 2026 문주현
-      </p>
-
+        <p>
+            현재 고등학교에서 학업에 충실함과 동시에, 저만의 게임 세계를 창조하기 위해 프로그래밍과 게임 엔진을 꾸준히 공부하고 있습니다. 앞으로 제가 만들어갈 멋진 프로젝트들을 기대해 주세요!
+        </p>
+        
+        <div class="tags">
+            <span class="tag">#게임개발</span>
+            <span class="tag">#프로그래밍</span>
+            <span class="tag">#열정</span>
+            <span class="tag">#도전</span>
+        </div>
     </div>
-  </div>
-
-  <!-- 애니메이션 -->
-  <style>
-    @keyframes fadeIn {
-      from { opacity:0; transform:translateY(20px); }
-      to { opacity:1; transform:translateY(0); }
-    }
-  </style>
-
 </body>
 </html>

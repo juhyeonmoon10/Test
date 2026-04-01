@@ -5,78 +5,115 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>문주현 | 예비 게임 개발자</title>
     <style>
-        /* 전체 배경 및 폰트 설정 */
+        /* 전체 스타일 */
         body {
             margin: 0;
             padding: 0;
-            font-family: 'Pretendard', 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;
-            background-color: #1a1a2e; /* 다크 네이비 배경 */
-            color: #eaeaea; /* 밝은 회색 텍스트 */
+            font-family: 'Pretendard', sans-serif;
+            color: #f1f5f9;
             display: flex;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
+            overflow-x: hidden;
+            /* 움직이는 그라데이션 배경 */
+            background: linear-gradient(-45deg, #0f172a, #1e293b, #334155, #1e293b);
+            background-size: 400% 400%;
+            animation: gradientBg 15s ease infinite;
         }
 
-        /* 메인 콘텐츠를 담는 박스 */
+        /* 배경 애니메이션 정의 */
+        @keyframes gradientBg {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* 유동적인 유리 컨테이너 */
         .container {
-            background-color: #16213e;
-            padding: 40px;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-            max-width: 600px;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px); /* 배경 흐리기 효과 */
+            border-radius: 30px; /* 더 둥근 모서리 */
+            padding: 60px;
             width: 90%;
-            text-align: center;
-            border: 2px solid #0f3460;
+            max-width: 700px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            text-align: left; /* 왼쪽 정렬 */
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
-        /* 이름 (포인트 컬러) */
+        /* 이름 - 네온 핑크 효과 */
         h1 {
-            color: #e94560; /* 네온 핑크/레드 계열 포인트 */
-            font-size: 2.8em;
-            margin-bottom: 10px;
+            font-size: 3.5em;
+            color: #ec4899;
+            text-shadow: 0 0 10px #ec4899, 0 0 20px #ec4899;
+            margin-bottom: 5px;
             margin-top: 0;
+            position: relative;
+            animation: neonPulse 2s ease-in-out infinite alternate;
         }
 
-        /* 소제목 (나이, 직업) */
+        /* 네온 펄스 애니메이션 */
+        @keyframes neonPulse {
+            from { text-shadow: 0 0 10px #ec4899, 0 0 20px #ec4899; }
+            to { text-shadow: 0 0 15px #ec4899, 0 0 25px #ec4899, 0 0 30px #f472b6; }
+        }
+
+        /* 소제목 - 부드러운 블루 */
         .subtitle {
-            color: #43bccd; /* 민트/블루 계열 포인트 */
-            font-size: 1.2em;
-            margin-bottom: 30px;
-            font-weight: bold;
+            font-size: 1.4em;
+            color: #38bdf8;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 40px;
+            font-weight: 500;
         }
 
-        /* 본문 텍스트 */
+        /* 본문 텍스트 - 충분한 여백 */
         p {
-            line-height: 1.7;
-            font-size: 1.1em;
-            margin-bottom: 20px;
+            font-size: 1.2em;
+            line-height: 1.8;
+            color: #cbd5e1;
+            margin-bottom: 30px;
             word-break: keep-all;
         }
 
-        /* 하단 태그 섹션 */
-        .tags {
-            margin-top: 30px;
-            padding-top: 20px;
-            border-top: 1px solid #0f3460;
+        p strong {
+            color: #f1f5f9;
+            border-bottom: 2px solid #38bdf8;
         }
 
+        /* 태그 섹션 */
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 40px;
+        }
+
+        /* 유동적인 태그 버튼 */
         .tag {
             display: inline-block;
-            background-color: #e94560;
-            color: white;
-            padding: 6px 16px;
-            border-radius: 20px;
-            font-size: 0.9em;
-            margin: 5px;
+            background-color: #334155;
+            color: #f1f5f9;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-size: 1.1em;
             font-weight: bold;
-            transition: transform 0.2s; /* 마우스 오버 시 애니메이션 준비 */
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
+        /* 태그 호버 효과 - 부드럽게 올라감 & 색상 변경 */
         .tag:hover {
-            transform: scale(1.1); /* 마우스를 올리면 살짝 커지는 효과 */
-            cursor: pointer;
+            background-color: #ec4899;
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(236, 72, 153, 0.5);
+            border-color: #ec4899;
         }
+
     </style>
 </head>
 <body>

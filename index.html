@@ -1,140 +1,95 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>문주현 | 예비 게임 개발자</title>
-    <style>
-        /* 전체 스타일 */
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: 'Pretendard', sans-serif;
-            color: #f1f5f9;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            overflow-x: hidden;
-            /* 움직이는 그라데이션 배경 */
-            background: linear-gradient(-45deg, #0f172a, #1e293b, #334155, #1e293b);
-            background-size: 400% 400%;
-            animation: gradientBg 15s ease infinite;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>문주현 소개 페이지</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
 
-        /* 배경 애니메이션 정의 */
-        @keyframes gradientBg {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #0f172a, #1e3a8a);
+      color: white;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 24px;
+    }
 
-        /* 유동적인 유리 컨테이너 */
-        .container {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(10px); /* 배경 흐리기 효과 */
-            border-radius: 30px; /* 더 둥근 모서리 */
-            padding: 60px;
-            width: 90%;
-            max-width: 700px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-            text-align: left; /* 왼쪽 정렬 */
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
+    .card {
+      width: 100%;
+      max-width: 700px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 20px;
+      padding: 40px 28px;
+      text-align: center;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+      backdrop-filter: blur(8px);
+    }
 
-        /* 이름 - 네온 핑크 효과 */
-        h1 {
-            font-size: 3.5em;
-            color: #ec4899;
-            text-shadow: 0 0 10px #ec4899, 0 0 20px #ec4899;
-            margin-bottom: 5px;
-            margin-top: 0;
-            position: relative;
-            animation: neonPulse 2s ease-in-out infinite alternate;
-        }
+    h1 {
+      margin: 0 0 12px;
+      font-size: 42px;
+    }
 
-        /* 네온 펄스 애니메이션 */
-        @keyframes neonPulse {
-            from { text-shadow: 0 0 10px #ec4899, 0 0 20px #ec4899; }
-            to { text-shadow: 0 0 15px #ec4899, 0 0 25px #ec4899, 0 0 30px #f472b6; }
-        }
+    .subtitle {
+      font-size: 20px;
+      color: #dbeafe;
+      margin-bottom: 24px;
+    }
 
-        /* 소제목 - 부드러운 블루 */
-        .subtitle {
-            font-size: 1.4em;
-            color: #38bdf8;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin-bottom: 40px;
-            font-weight: 500;
-        }
+    p {
+      line-height: 1.8;
+      font-size: 17px;
+      color: #f8fafc;
+      margin: 0 0 16px;
+    }
 
-        /* 본문 텍스트 - 충분한 여백 */
-        p {
-            font-size: 1.2em;
-            line-height: 1.8;
-            color: #cbd5e1;
-            margin-bottom: 30px;
-            word-break: keep-all;
-        }
+    .dream {
+      margin-top: 28px;
+      padding: 18px;
+      border-radius: 14px;
+      background: rgba(255, 255, 255, 0.08);
+    }
 
-        p strong {
-            color: #f1f5f9;
-            border-bottom: 2px solid #38bdf8;
-        }
+    .dream h2 {
+      margin: 0 0 10px;
+      font-size: 24px;
+    }
 
-        /* 태그 섹션 */
-        .tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-top: 40px;
-        }
-
-        /* 유동적인 태그 버튼 */
-        .tag {
-            display: inline-block;
-            background-color: #334155;
-            color: #f1f5f9;
-            padding: 10px 20px;
-            border-radius: 25px;
-            font-size: 1.1em;
-            font-weight: bold;
-            transition: all 0.3s ease;
-            cursor: pointer;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        /* 태그 호버 효과 - 부드럽게 올라감 & 색상 변경 */
-        .tag:hover {
-            background-color: #ec4899;
-            transform: translateY(-5px);
-            box-shadow: 0 5px 15px rgba(236, 72, 153, 0.5);
-            border-color: #ec4899;
-        }
-
-    </style>
+    .footer {
+      margin-top: 28px;
+      font-size: 14px;
+      color: #cbd5e1;
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <h1>문주현</h1>
-        <div class="subtitle">🎮 고등학교 1학년 | 예비 게임 개발자</div>
-        
-        <p>
-            안녕하세요! 제 GitHub 페이지에 오신 것을 환영합니다.<br>
-            저는 사람들에게 잊지 못할 즐거움을 선사하는 <strong>게임 개발자</strong>를 꿈꾸고 있습니다.
-        </p>
-        <p>
-            현재 고등학교에서 학업에 충실함과 동시에, 저만의 게임 세계를 창조하기 위해 프로그래밍과 게임 엔진을 꾸준히 공부하고 있습니다. 앞으로 제가 만들어갈 멋진 프로젝트들을 기대해 주세요!
-        </p>
-        
-        <div class="tags">
-            <span class="tag">#게임개발</span>
-            <span class="tag">#프로그래밍</span>
-            <span class="tag">#열정</span>
-            <span class="tag">#도전</span>
-        </div>
+  <div class="card">
+    <h1>문주현</h1>
+    <div class="subtitle">고등학교 1학년</div>
+
+    <p>
+      안녕하세요! 저는 문주현입니다.
+      현재 고등학교 1학년에 재학 중이며, 프로그래밍과 게임에 관심이 많습니다.
+    </p>
+
+    <p>
+      새로운 것을 배우고 직접 만들어 보는 것을 좋아하며,
+      앞으로 다양한 기술을 익혀 재미있고 창의적인 게임을 만드는 개발자가 되고 싶습니다.
+    </p>
+
+    <div class="dream">
+      <h2>나의 꿈</h2>
+      <p>사람들이 즐겁게 플레이할 수 있는 게임을 만드는 게임개발자가 되는 것입니다.</p>
     </div>
+
+    <div class="footer">© 2026 문주현</div>
+  </div>
 </body>
 </html>

@@ -4,392 +4,196 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>문주현 | 소개 페이지</title>
+
   <style>
     * {
-      box-sizing: border-box;
-    }
-
-    html, body {
-      margin: 0;
-      padding: 0;
-      width: 100%;
-      min-height: 100%;
-      font-family: "Pretendard", "Segoe UI", Arial, sans-serif;
-      background:
-        radial-gradient(circle at top left, #1d4ed8 0%, transparent 30%),
-        radial-gradient(circle at bottom right, #7c3aed 0%, transparent 30%),
-        linear-gradient(135deg, #0f172a, #111827 45%, #1e293b 100%);
-      color: white;
-      overflow-x: hidden;
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
     }
 
     body {
-      position: relative;
+      font-family: "Segoe UI", Arial, sans-serif;
+      background:
+        radial-gradient(circle at 20% 20%, rgba(59, 130, 246, 0.2), transparent 25%),
+        radial-gradient(circle at 80% 30%, rgba(168, 85, 247, 0.15), transparent 25%),
+        linear-gradient(135deg, #0f172a, #111827 45%, #1e293b 100%);
+      color: white;
+      min-height:100vh;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      overflow:hidden;
     }
 
-    .stars {
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      overflow: hidden;
-      z-index: 0;
-    }
-
-    .star {
-      position: absolute;
-      width: 4px;
-      height: 4px;
-      background: rgba(255,255,255,0.8);
-      border-radius: 50%;
-      animation: twinkle 3s infinite ease-in-out;
-      box-shadow: 0 0 10px rgba(255,255,255,0.4);
-    }
-
-    @keyframes twinkle {
-      0%, 100% {
-        opacity: 0.2;
-        transform: scale(0.8);
-      }
-      50% {
-        opacity: 1;
-        transform: scale(1.5);
-      }
-    }
-
-    .container {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 32px 20px;
-      position: relative;
-      z-index: 1;
-    }
-
+    /* 카드 */
     .card {
-      width: 100%;
-      max-width: 760px;
-      padding: 42px 34px;
-      border-radius: 28px;
-      background: rgba(255, 255, 255, 0.08);
-      border: 1px solid rgba(255,255,255,0.12);
-      backdrop-filter: blur(14px);
-      box-shadow: 0 20px 60px rgba(0,0,0,0.35);
-      position: relative;
-      transition: transform 0.15s ease, box-shadow 0.2s ease;
-      overflow: hidden;
-    }
-
-    .card::before {
-      content: "";
-      position: absolute;
-      inset: -2px;
-      background: linear-gradient(135deg, rgba(59,130,246,0.25), rgba(168,85,247,0.2), rgba(34,197,94,0.15));
-      z-index: -1;
-      filter: blur(20px);
-    }
-
-    .badge {
-      display: inline-block;
-      padding: 8px 14px;
-      border-radius: 999px;
-      background: rgba(59,130,246,0.18);
-      color: #bfdbfe;
-      font-size: 14px;
-      margin-bottom: 16px;
-      border: 1px solid rgba(147,197,253,0.18);
+      width:100%;
+      max-width:720px;
+      padding:40px;
+      border-radius:24px;
+      background:rgba(255,255,255,0.08);
+      backdrop-filter: blur(12px);
+      box-shadow:0 20px 60px rgba(0,0,0,0.4);
+      text-align:center;
+      position:relative;
+      z-index:1;
     }
 
     h1 {
-      margin: 0;
-      font-size: clamp(38px, 6vw, 64px);
-      line-height: 1.05;
-      letter-spacing: -1px;
+      font-size:42px;
+      margin-bottom:10px;
     }
 
-    .name-highlight {
-      background: linear-gradient(90deg, #60a5fa, #a78bfa, #34d399);
+    .highlight {
+      background: linear-gradient(90deg, #60a5fa, #a78bfa);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      background-clip: text;
     }
 
     .subtitle {
-      margin-top: 14px;
-      font-size: 20px;
-      color: #dbeafe;
+      font-size:18px;
+      color:#cbd5f5;
+      margin-bottom:20px;
     }
 
-    .desc {
-      margin-top: 26px;
-      font-size: 17px;
-      line-height: 1.9;
-      color: #e5e7eb;
+    p {
+      font-size:16px;
+      line-height:1.8;
+      color:#e5e7eb;
+      margin-bottom:16px;
     }
 
     .grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 16px;
-      margin-top: 28px;
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:12px;
+      margin-top:20px;
     }
 
     .panel {
-      background: rgba(255,255,255,0.07);
-      border: 1px solid rgba(255,255,255,0.1);
-      border-radius: 20px;
-      padding: 20px;
-      transition: transform 0.2s ease, background 0.2s ease;
-    }
-
-    .panel:hover {
-      transform: translateY(-4px);
-      background: rgba(255,255,255,0.11);
+      padding:14px;
+      border-radius:14px;
+      background:rgba(255,255,255,0.08);
     }
 
     .panel-title {
-      font-size: 14px;
-      color: #93c5fd;
-      margin-bottom: 10px;
-      letter-spacing: 0.3px;
+      font-size:13px;
+      color:#93c5fd;
+      margin-bottom:6px;
     }
 
     .panel-text {
-      font-size: 18px;
-      color: white;
-      line-height: 1.6;
-      font-weight: 600;
+      font-size:16px;
+      font-weight:bold;
     }
 
     .footer {
-      margin-top: 26px;
-      font-size: 13px;
-      color: #94a3b8;
+      margin-top:20px;
+      font-size:13px;
+      color:#94a3b8;
     }
 
-    .floating-character {
-      position: fixed;
-      left: 0;
-      top: 0;
-      width: 62px;
-      height: 62px;
-      pointer-events: none;
-      transform: translate(-50%, -50%);
-      z-index: 5;
-      transition: transform 0.08s linear;
-      filter: drop-shadow(0 10px 18px rgba(0,0,0,0.35));
+    /* ===== 스모크 효과 ===== */
+    .smoke {
+      position:fixed;
+      left:0;
+      top:0;
+      width:100%;
+      height:100vh;
+      pointer-events:none;
+      z-index:0;
     }
 
-    .character-body {
-      width: 62px;
-      height: 62px;
-      position: relative;
-      animation: floaty 2s infinite ease-in-out;
+    .circle {
+      position:absolute;
+      width:10px;
+      height:10px;
+      border-radius:50%;
+      background:radial-gradient(circle,
+        rgba(255,255,255,0.8) 0%,
+        rgba(255,255,255,0.5) 20%,
+        rgba(255,255,255,0.1) 50%);
+      animation:1s sizeup ease-out forwards;
     }
 
-    @keyframes floaty {
-      0%, 100% {
-        transform: translateY(0);
+    @keyframes sizeup {
+      0% {
+        scale:0;
+        transform:translateY(0);
       }
-      50% {
-        transform: translateY(-5px);
+      100% {
+        scale:15;
+        opacity:0;
+        transform:translateY(-10px);
       }
     }
 
-    .face {
-      position: absolute;
-      width: 48px;
-      height: 48px;
-      left: 7px;
-      top: 8px;
-      background: linear-gradient(135deg, #fde68a, #fca5a5);
-      border-radius: 50%;
-      border: 2px solid rgba(255,255,255,0.5);
-    }
-
-    .eye {
-      position: absolute;
-      width: 6px;
-      height: 10px;
-      background: #111827;
-      border-radius: 999px;
-      top: 17px;
-    }
-
-    .eye.left {
-      left: 14px;
-    }
-
-    .eye.right {
-      right: 14px;
-    }
-
-    .mouth {
-      position: absolute;
-      width: 14px;
-      height: 8px;
-      border-bottom: 3px solid #111827;
-      border-radius: 0 0 12px 12px;
-      left: 17px;
-      top: 28px;
-    }
-
-    .hat {
-      position: absolute;
-      width: 54px;
-      height: 20px;
-      left: 4px;
-      top: 0;
-      background: linear-gradient(90deg, #60a5fa, #2563eb);
-      border-radius: 16px 16px 8px 8px;
-      transform: rotate(-6deg);
-    }
-
-    .hat::after {
-      content: "";
-      position: absolute;
-      right: 6px;
-      top: -4px;
-      width: 12px;
-      height: 12px;
-      background: #93c5fd;
-      border-radius: 50%;
-    }
-
-    .tip {
-      margin-top: 18px;
-      color: #cbd5e1;
-      font-size: 14px;
-    }
-
-    @media (max-width: 700px) {
+    @media (max-width:600px){
       .grid {
-        grid-template-columns: 1fr;
-      }
-
-      .card {
-        padding: 34px 22px;
-      }
-
-      .subtitle {
-        font-size: 18px;
-      }
-
-      .desc {
-        font-size: 16px;
-      }
-
-      .floating-character {
-        width: 54px;
-        height: 54px;
-      }
-
-      .character-body {
-        transform: scale(0.9);
-        transform-origin: top left;
+        grid-template-columns:1fr;
       }
     }
+
   </style>
 </head>
-<body>
-  <div class="stars" id="stars"></div>
 
-  <div class="floating-character" id="character">
-    <div class="character-body">
-      <div class="hat"></div>
-      <div class="face">
-        <div class="eye left"></div>
-        <div class="eye right"></div>
-        <div class="mouth"></div>
+<body>
+
+  <!-- 스모크 레이어 -->
+  <div class="smoke"></div>
+
+  <div class="card">
+    <h1>안녕하세요, 저는 <span class="highlight">문주현</span>입니다.</h1>
+    <div class="subtitle">고등학교 1학년 · 게임개발자를 꿈꾸고 있습니다.</div>
+
+    <p>
+      저는 새로운 아이디어를 구상하고 이를 직접 구현하는 과정을 좋아합니다.
+      특히 프로그래밍과 게임 제작에 관심이 있으며,
+      앞으로 다양한 기술을 학습하여 완성도 높은 게임을 개발하는 것이 목표입니다.
+    </p>
+
+    <div class="grid">
+      <div class="panel">
+        <div class="panel-title">이름</div>
+        <div class="panel-text">문주현</div>
+      </div>
+      <div class="panel">
+        <div class="panel-title">학년</div>
+        <div class="panel-text">고등학교 1학년</div>
+      </div>
+      <div class="panel">
+        <div class="panel-title">관심 분야</div>
+        <div class="panel-text">프로그래밍, 게임 개발</div>
+      </div>
+      <div class="panel">
+        <div class="panel-title">목표</div>
+        <div class="panel-text">게임개발자</div>
       </div>
     </div>
+
+    <div class="footer">© 2026 Moon Juhyeon</div>
   </div>
 
-  <main class="container">
-    <section class="card" id="card">
-      <div class="badge">INTRODUCE MYSELF</div>
-      <h1>안녕, 나는 <span class="name-highlight">문주현</span></h1>
-      <div class="subtitle">고등학교 1학년 · 미래의 게임개발자</div>
-
-      <p class="desc">
-        나는 새로운 아이디어를 상상하고, 그걸 직접 만들어 보는 걸 좋아해.
-        특히 게임처럼 사람들에게 재미를 줄 수 있는 콘텐츠에 관심이 많고,
-        앞으로 다양한 프로그래밍 기술을 배우면서 나만의 멋진 게임을 만드는 개발자가 되고 싶어.
-      </p>
-
-      <div class="grid">
-        <div class="panel">
-          <div class="panel-title">이름</div>
-          <div class="panel-text">문주현</div>
-        </div>
-        <div class="panel">
-          <div class="panel-title">학년</div>
-          <div class="panel-text">고등학교 1학년</div>
-        </div>
-        <div class="panel">
-          <div class="panel-title">관심 분야</div>
-          <div class="panel-text">프로그래밍 · 게임 아이디어 · 웹 만들기</div>
-        </div>
-        <div class="panel">
-          <div class="panel-title">꿈</div>
-          <div class="panel-text">재미있는 게임을 만드는 게임개발자</div>
-        </div>
-      </div>
-
-      <div class="tip">마우스를 움직여 봐! 캐릭터가 따라다녀^^</div>
-      <div class="footer">© 2026 Moon Juhyeon</div>
-    </section>
-  </main>
-
   <script>
-    const character = document.getElementById("character");
-    const card = document.getElementById("card");
-    const stars = document.getElementById("stars");
+    const smoke = document.querySelector(".smoke");
 
-    let mouseX = window.innerWidth / 2;
-    let mouseY = window.innerHeight / 2;
-    let currentX = mouseX;
-    let currentY = mouseY;
+    function createSmokeEffect(e){
+      const circle = document.createElement("div");
+      circle.classList.add("circle");
 
-    for (let i = 0; i < 45; i++) {
-      const star = document.createElement("div");
-      star.className = "star";
-      star.style.left = Math.random() * 100 + "%";
-      star.style.top = Math.random() * 100 + "%";
-      star.style.animationDelay = (Math.random() * 3) + "s";
-      star.style.opacity = Math.random().toFixed(2);
-      stars.appendChild(star);
+      circle.style.left = `${e.clientX}px`;
+      circle.style.top = `${e.clientY}px`;
+
+      smoke.appendChild(circle);
+
+      circle.addEventListener("animationend",()=>{
+        circle.remove();
+      });
     }
 
-    window.addEventListener("mousemove", (e) => {
-      mouseX = e.clientX + 18;
-      mouseY = e.clientY + 18;
-
-      const rect = card.getBoundingClientRect();
-      const centerX = rect.left + rect.width / 2;
-      const centerY = rect.top + rect.height / 2;
-
-      const rotateY = (e.clientX - centerX) / 30;
-      const rotateX = (centerY - e.clientY) / 30;
-
-      card.style.transform = `perspective(1000px) rotateX(${rotateX * 0.4}deg) rotateY(${rotateY * 0.4}deg)`;
-      card.style.boxShadow = `${-rotateY * 1.5}px ${rotateX * 1.5 + 20}px 60px rgba(0,0,0,0.35)`;
-    });
-
-    window.addEventListener("mouseleave", () => {
-      card.style.transform = "perspective(1000px) rotateX(0deg) rotateY(0deg)";
-      card.style.boxShadow = "0 20px 60px rgba(0,0,0,0.35)";
-    });
-
-    function animateCharacter() {
-      currentX += (mouseX - currentX) * 0.12;
-      currentY += (mouseY - currentY) * 0.12;
-      character.style.left = currentX + "px";
-      character.style.top = currentY + "px";
-      requestAnimationFrame(animateCharacter);
-    }
-
-    animateCharacter();
+    window.addEventListener("mousemove", createSmokeEffect);
   </script>
+
 </body>
 </html>

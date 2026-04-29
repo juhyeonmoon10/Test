@@ -3,371 +3,294 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>문주현 | 소개 페이지</title>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: "Segoe UI", Arial, sans-serif;
-      background:
-        radial-gradient(circle at 20% 20%, rgba(59, 130, 246, 0.18), transparent 25%),
-        radial-gradient(circle at 80% 30%, rgba(168, 85, 247, 0.14), transparent 25%),
-        linear-gradient(135deg, #0b1120, #111827 45%, #1e293b 100%);
-      color: white;
-      min-height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      overflow: hidden;
-      position: relative;
-    }
-
-    canvas {
-      position: fixed;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      pointer-events: none;
-      z-index: 1;
-    }
-
-    .card {
-      width: 100%;
-      max-width: 720px;
-      padding: 40px;
-      border-radius: 24px;
-      background: rgba(255,255,255,0.08);
-      backdrop-filter: blur(12px);
-      box-shadow: 0 20px 60px rgba(0,0,0,0.4);
-      text-align: center;
-      position: relative;
-      z-index: 2;
-      transition: transform 0.1s ease, box-shadow 0.2s ease;
-    }
-
-    h1 {
-      font-size: 42px;
-      margin-bottom: 10px;
-    }
-
-    .highlight {
-      background: linear-gradient(90deg, #60a5fa, #a78bfa);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-
-    .subtitle {
-      font-size: 18px;
-      color: #cbd5f5;
-      margin-bottom: 20px;
-    }
-
-    p {
-      font-size: 16px;
-      line-height: 1.8;
-      color: #e5e7eb;
-      margin-bottom: 16px;
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 12px;
-      margin-top: 20px;
-    }
-
-    .panel {
-      padding: 14px;
-      border-radius: 14px;
-      background: rgba(255,255,255,0.08);
-      border: 1px solid rgba(255,255,255,0.05);
-    }
-
-    .panel-title {
-      font-size: 13px;
-      color: #93c5fd;
-      margin-bottom: 6px;
-    }
-
-    .panel-text {
-      font-size: 16px;
-      font-weight: bold;
-    }
-
-    .footer {
-      margin-top: 20px;
-      font-size: 13px;
-      color: #94a3b8;
-    }
-
-    @media (max-width: 600px) {
-      .grid {
-        grid-template-columns: 1fr;
-      }
-
-      .card {
-        padding: 28px 22px;
-      }
-
-      h1 {
-        font-size: 34px;
-      }
-    }
-  </style>
-</head>
-<body>
-  <canvas id="snakeCanvas"></canvas>
-
-  <div class="card" id="card">
-    <h1>안녕하세요, 저는 <span class="highlight">문주현</span>입니다.</h1>
-    <div class="subtitle">고등학교 1학년 · 게임개발자를 꿈꾸고 있습니다.</div>
-
-    <p>
-      저는 새로운 아이디어를 구상하고 이를 직접 구현하는 과정을 좋아합니다.
-      특히 프로그래밍과 게임 제작에 관심이 있으며,
-      다양한 기술을 학습하여 완성도 높은 게임을 개발하는 것을 목표로 하고 있습니다.
-    </p>
-
-    <div class="grid">
-      <div class="panel">
-        <div class="panel-title">이름</div>
-        <div class="panel-text">문주현</div>
-      </div>
-      <div class="panel">
-        <div class="panel-title">학년</div>
-        <div class="panel-text">고등학교 1학년</div>
-      </div>
-      <div class="panel">
-        <div class="panel-title">관심 분야</div>
-        <div class="panel-text">프로그래밍, 게임 개발</div>
-      </div>
-      <div class="panel">
-        <div class="panel-title">목표</div>
-        <div class="panel-text">게임개발자</div>
-      </div>
-    </div>
-
-    <div class="footer">© 2026 Moon Juhyeon</div>
-  </div>
-
+  <title>익명 고민 상담소</title>
+  <script src="https://cdn.tailwindcss.com"></script>
   <script>
-    const card = document.getElementById("card");
-    const canvas = document.getElementById("snakeCanvas");
-    const ctx = canvas.getContext("2d");
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            cream: "#FFF8F0",
+            peach: "#FDE2E4",
+            lavender: "#E2D7F5",
+            mint: "#D8F3DC",
+            slateWarm: "#5B616B"
+          }
+        }
+      }
+    };
+  </script>
+</head>
+<body class="bg-cream text-slateWarm min-h-screen">
+  <main class="max-w-5xl mx-auto p-4 md:p-8 grid gap-6 md:grid-cols-3">
+    <section class="md:col-span-1 bg-white/80 backdrop-blur rounded-2xl shadow p-5">
+      <h1 class="text-2xl font-bold mb-2">익명 고민 상담소</h1>
+      <p class="text-sm mb-4">익명으로 고민을 남기고, 서로의 이야기에 공감해요.</p>
 
-    function resizeCanvas() {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-    }
-    resizeCanvas();
-    window.addEventListener("resize", resizeCanvas);
+      <form id="postForm" class="space-y-3">
+        <select id="category" class="w-full rounded-xl border border-peach p-2" required>
+          <option value="학업">학업</option>
+          <option value="친구">친구</option>
+          <option value="기타">기타</option>
+        </select>
+        <textarea id="content" rows="5" maxlength="500" class="w-full rounded-xl border border-peach p-3" placeholder="고민을 작성하세요..." required></textarea>
+        <input id="password" type="password" maxlength="20" class="w-full rounded-xl border border-peach p-2" placeholder="삭제용 비밀번호" required />
+        <button type="submit" class="w-full bg-lavender hover:bg-purple-200 rounded-xl p-2 font-semibold">등록하기</button>
+      </form>
+    </section>
 
-    const mouse = {
-      x: window.innerWidth / 2,
-      y: window.innerHeight / 2
+    <section class="md:col-span-2 bg-white/80 backdrop-blur rounded-2xl shadow p-5">
+      <div class="flex justify-between items-center mb-3">
+        <h2 class="text-xl font-semibold">최근 고민</h2>
+        <select id="filterCategory" class="rounded-xl border border-lavender p-2 text-sm">
+          <option value="전체">전체</option>
+          <option value="학업">학업</option>
+          <option value="친구">친구</option>
+          <option value="기타">기타</option>
+        </select>
+      </div>
+
+      <div id="loading" class="hidden py-6 text-center">
+        <div class="inline-block w-8 h-8 border-4 border-lavender border-t-transparent rounded-full animate-spin"></div>
+        <p class="mt-2 text-sm">데이터를 불러오는 중...</p>
+      </div>
+
+      <ul id="postList" class="space-y-3"></ul>
+    </section>
+  </main>
+
+  <dialog id="detailDialog" class="rounded-2xl p-0 w-[95%] max-w-2xl">
+    <div class="p-5 bg-white">
+      <div class="flex justify-between items-start gap-3">
+        <div>
+          <h3 id="detailCategory" class="font-bold text-lg"></h3>
+          <p id="detailTime" class="text-xs text-gray-500"></p>
+        </div>
+        <div class="flex gap-2">
+          <button id="deleteBtn" class="px-3 py-1 rounded-lg bg-peach text-sm">삭제</button>
+          <button id="closeDialog" class="px-3 py-1 rounded-lg bg-gray-100 text-sm">닫기</button>
+        </div>
+      </div>
+      <p id="detailContent" class="my-4 whitespace-pre-wrap"></p>
+
+      <hr class="my-3" />
+      <h4 class="font-semibold mb-2">댓글</h4>
+      <form id="commentForm" class="flex gap-2 mb-3">
+        <input id="commentInput" type="text" maxlength="300" class="flex-1 border rounded-lg p-2" placeholder="따뜻한 댓글을 남겨주세요" required />
+        <button class="px-4 rounded-lg bg-mint">등록</button>
+      </form>
+      <ul id="commentList" class="space-y-2"></ul>
+    </div>
+  </dialog>
+
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js";
+    import {
+      getFirestore,
+      collection,
+      addDoc,
+      getDocs,
+      query,
+      orderBy,
+      serverTimestamp,
+      doc,
+      getDoc,
+      deleteDoc,
+      where,
+      onSnapshot
+    } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js";
+
+    // TODO: 본인 Firebase 프로젝트 설정으로 교체
+    const firebaseConfig = {
+      apiKey: "YOUR_API_KEY",
+      authDomain: "YOUR_PROJECT.firebaseapp.com",
+      projectId: "YOUR_PROJECT_ID",
+      storageBucket: "YOUR_PROJECT.appspot.com",
+      messagingSenderId: "YOUR_SENDER_ID",
+      appId: "YOUR_APP_ID"
     };
 
-    const segmentCount = 22;
-    const spacing = 16;
-    const segments = [];
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
 
-    for (let i = 0; i < segmentCount; i++) {
-      segments.push({
-        x: mouse.x,
-        y: mouse.y,
-        angle: 0,
-        width: Math.max(18, 34 - i * 0.7),
-        height: Math.max(12, 22 - i * 0.35)
+    const bannedWords = ["바보", "멍청이"];
+    const postForm = document.getElementById("postForm");
+    const postList = document.getElementById("postList");
+    const filterCategory = document.getElementById("filterCategory");
+    const loading = document.getElementById("loading");
+    const detailDialog = document.getElementById("detailDialog");
+    const detailContent = document.getElementById("detailContent");
+    const detailCategory = document.getElementById("detailCategory");
+    const detailTime = document.getElementById("detailTime");
+    const deleteBtn = document.getElementById("deleteBtn");
+    const closeDialog = document.getElementById("closeDialog");
+    const commentForm = document.getElementById("commentForm");
+    const commentInput = document.getElementById("commentInput");
+    const commentList = document.getElementById("commentList");
+
+    let selectedPostId = null;
+    let commentUnsubscribe = null;
+
+    function containsBannedWord(text) {
+      const normalized = (text || "").trim();
+      return bannedWords.some((word) => normalized.includes(word));
+    }
+
+    function sanitizeText(text) {
+      return (text || "").replace(/[&<>'"]/g, (char) => ({
+        "&": "&amp;",
+        "<": "&lt;",
+        ">": "&gt;",
+        "'": "&#39;",
+        '"': "&quot;"
+      })[char]);
+    }
+
+    function formatRelativeTime(date) {
+      if (!date) return "방금 전";
+      const diffSec = Math.floor((Date.now() - date.getTime()) / 1000);
+      if (diffSec < 60) return "방금 전";
+      if (diffSec < 3600) return `${Math.floor(diffSec / 60)}분 전`;
+      if (diffSec < 86400) return `${Math.floor(diffSec / 3600)}시간 전`;
+      return `${Math.floor(diffSec / 86400)}일 전`;
+    }
+
+    function setLoading(isLoading) {
+      loading.classList.toggle("hidden", !isLoading);
+    }
+
+    async function createPost(event) {
+      event.preventDefault();
+      const category = document.getElementById("category").value;
+      const content = document.getElementById("content").value.trim();
+      const password = document.getElementById("password").value.trim();
+
+      if (!content) {
+        alert("내용을 입력해주세요.");
+        return;
+      }
+      if (containsBannedWord(content)) {
+        alert("부적절한 단어가 포함되어 있습니다");
+        return;
+      }
+
+      await addDoc(collection(db, "posts"), {
+        category,
+        content: sanitizeText(content),
+        password,
+        createdAt: serverTimestamp()
+      });
+
+      postForm.reset();
+      await loadPosts();
+    }
+
+    async function loadPosts() {
+      setLoading(true);
+      postList.innerHTML = "";
+
+      const q = query(collection(db, "posts"), orderBy("createdAt", "desc"));
+      const snapshot = await getDocs(q);
+      const filter = filterCategory.value;
+
+      snapshot.forEach((item) => {
+        const data = item.data();
+        if (filter !== "전체" && data.category !== filter) return;
+        const createdDate = data.createdAt?.toDate ? data.createdAt.toDate() : null;
+
+        const li = document.createElement("li");
+        li.className = "p-3 border border-lavender rounded-xl bg-white cursor-pointer hover:bg-purple-50";
+        li.innerHTML = `
+          <div class="flex justify-between text-sm mb-1">
+            <span class="font-semibold">${data.category}</span>
+            <span class="text-gray-500">${formatRelativeTime(createdDate)}</span>
+          </div>
+          <p class="line-clamp-2">${data.content}</p>
+        `;
+
+        li.addEventListener("click", () => openPostDetail(item.id));
+        postList.appendChild(li);
+      });
+
+      setLoading(false);
+    }
+
+    async function openPostDetail(postId) {
+      selectedPostId = postId;
+      const postRef = doc(db, "posts", postId);
+      const snap = await getDoc(postRef);
+      if (!snap.exists()) return;
+
+      const data = snap.data();
+      detailCategory.textContent = `카테고리: ${data.category}`;
+      detailContent.textContent = data.content;
+      detailTime.textContent = formatRelativeTime(data.createdAt?.toDate?.());
+      detailDialog.showModal();
+
+      bindComments(postId);
+    }
+
+    async function createComment(event) {
+      event.preventDefault();
+      if (!selectedPostId) return;
+      const content = commentInput.value.trim();
+      if (!content) return;
+      if (containsBannedWord(content)) {
+        alert("부적절한 단어가 포함되어 있습니다");
+        return;
+      }
+
+      await addDoc(collection(db, "comments"), {
+        postId: selectedPostId,
+        content: sanitizeText(content),
+        createdAt: serverTimestamp()
+      });
+      commentInput.value = "";
+    }
+
+    function bindComments(postId) {
+      if (commentUnsubscribe) commentUnsubscribe();
+      const q = query(collection(db, "comments"), where("postId", "==", postId), orderBy("createdAt", "asc"));
+
+      commentUnsubscribe = onSnapshot(q, (snapshot) => {
+        commentList.innerHTML = "";
+        snapshot.forEach((item) => {
+          const data = item.data();
+          const li = document.createElement("li");
+          li.className = "p-2 rounded-lg bg-gray-50 text-sm";
+          li.textContent = `${data.content} · ${formatRelativeTime(data.createdAt?.toDate?.())}`;
+          commentList.appendChild(li);
+        });
       });
     }
 
-    window.addEventListener("mousemove", (e) => {
-      mouse.x = e.clientX;
-      mouse.y = e.clientY;
+    async function deletePost() {
+      if (!selectedPostId) return;
+      const inputPassword = prompt("삭제용 비밀번호를 입력하세요:");
+      if (!inputPassword) return;
 
-      const rect = card.getBoundingClientRect();
-      const centerX = rect.left + rect.width / 2;
-      const centerY = rect.top + rect.height / 2;
+      const snap = await getDoc(doc(db, "posts", selectedPostId));
+      if (!snap.exists()) return;
 
-      const rotateY = (e.clientX - centerX) / 30;
-      const rotateX = (centerY - e.clientY) / 30;
-
-      card.style.transform =
-        `perspective(1000px) rotateX(${rotateX * 0.4}deg) rotateY(${rotateY * 0.4}deg)`;
-
-      card.style.boxShadow =
-        `${-rotateY * 1.5}px ${rotateX * 1.5 + 20}px 60px rgba(0,0,0,0.4)`;
-    });
-
-    window.addEventListener("mouseleave", () => {
-      card.style.transform = "perspective(1000px) rotateX(0deg) rotateY(0deg)";
-      card.style.boxShadow = "0 20px 60px rgba(0,0,0,0.4)";
-    });
-
-    function drawArrowPlate(w, h) {
-      const tip = w * 0.28;
-      const inset = w * 0.14;
-      const cut = h * 0.24;
-
-      ctx.beginPath();
-      ctx.moveTo(-w / 2 + inset, -h / 2);
-      ctx.lineTo(w / 2 - tip, -h / 2);
-      ctx.lineTo(w / 2, 0);
-      ctx.lineTo(w / 2 - tip, h / 2);
-      ctx.lineTo(-w / 2 + inset, h / 2);
-      ctx.lineTo(-w / 2, h / 2 - cut);
-      ctx.lineTo(-w / 2, -h / 2 + cut);
-      ctx.closePath();
-    }
-
-    function drawInnerPlate(w, h) {
-      const tip = w * 0.2;
-      const inset = w * 0.08;
-      const cut = h * 0.16;
-
-      ctx.beginPath();
-      ctx.moveTo(-w / 2 + inset, -h / 2);
-      ctx.lineTo(w / 2 - tip, -h / 2);
-      ctx.lineTo(w / 2, 0);
-      ctx.lineTo(w / 2 - tip, h / 2);
-      ctx.lineTo(-w / 2 + inset, h / 2);
-      ctx.lineTo(-w / 2, h / 2 - cut);
-      ctx.lineTo(-w / 2, -h / 2 + cut);
-      ctx.closePath();
-    }
-
-    function drawHead(w, h) {
-      const nose = w * 0.34;
-      const back = w * 0.2;
-      const cut = h * 0.28;
-
-      ctx.beginPath();
-      ctx.moveTo(-w / 2 + back, -h / 2);
-      ctx.lineTo(w / 2 - nose, -h / 2);
-      ctx.lineTo(w / 2, 0);
-      ctx.lineTo(w / 2 - nose, h / 2);
-      ctx.lineTo(-w / 2 + back, h / 2);
-      ctx.lineTo(-w / 2, h / 2 - cut);
-      ctx.lineTo(-w / 2, -h / 2 + cut);
-      ctx.closePath();
-    }
-
-    function drawSegment(seg, index) {
-      ctx.save();
-      ctx.translate(seg.x, seg.y);
-      ctx.rotate(seg.angle);
-
-      const w = seg.width;
-      const h = seg.height;
-
-      if (index === 0) {
-        const hw = w * 1.25;
-        const hh = h * 1.25;
-
-        const headGrad = ctx.createLinearGradient(-hw / 2, -hh / 2, hw / 2, hh / 2);
-        headGrad.addColorStop(0, "#020202");
-        headGrad.addColorStop(0.45, "#171717");
-        headGrad.addColorStop(0.75, "#2a2a2a");
-        headGrad.addColorStop(1, "#060606");
-
-        ctx.fillStyle = headGrad;
-        ctx.strokeStyle = "rgba(190,190,190,0.18)";
-        ctx.lineWidth = 1.2;
-        drawHead(hw, hh);
-        ctx.fill();
-        ctx.stroke();
-
-        ctx.fillStyle = "rgba(255,255,255,0.05)";
-        ctx.save();
-        ctx.scale(0.82, 0.62);
-        drawHead(hw, hh);
-        ctx.fill();
-        ctx.restore();
-
-        ctx.strokeStyle = "rgba(255,255,255,0.08)";
-        ctx.beginPath();
-        ctx.moveTo(-hw * 0.14, 0);
-        ctx.lineTo(hw * 0.18, 0);
-        ctx.stroke();
-
-        ctx.fillStyle = "#7dd3fc";
-        ctx.shadowColor = "#7dd3fc";
-        ctx.shadowBlur = 10;
-        ctx.beginPath();
-        ctx.arc(hw * 0.16, -hh * 0.16, 2.4, 0, Math.PI * 2);
-        ctx.arc(hw * 0.16, hh * 0.16, 2.4, 0, Math.PI * 2);
-        ctx.fill();
-        ctx.shadowBlur = 0;
-      } else {
-        const grad = ctx.createLinearGradient(-w / 2, -h / 2, w / 2, h / 2);
-        grad.addColorStop(0, "#030303");
-        grad.addColorStop(0.45, "#1b1b1b");
-        grad.addColorStop(0.75, "#2c2c2c");
-        grad.addColorStop(1, "#070707");
-
-        ctx.fillStyle = grad;
-        ctx.strokeStyle = "rgba(170,170,170,0.16)";
-        ctx.lineWidth = 1.05;
-        drawArrowPlate(w, h);
-        ctx.fill();
-        ctx.stroke();
-
-        ctx.fillStyle = "rgba(255,255,255,0.04)";
-        ctx.save();
-        ctx.scale(0.78, 0.56);
-        drawInnerPlate(w, h);
-        ctx.fill();
-        ctx.restore();
-
-        ctx.strokeStyle = "rgba(255,255,255,0.07)";
-        ctx.lineWidth = 0.9;
-        ctx.beginPath();
-        ctx.moveTo(-w * 0.18, 0);
-        ctx.lineTo(w * 0.16, 0);
-        ctx.stroke();
+      const data = snap.data();
+      if (data.password !== inputPassword) {
+        alert("비밀번호가 일치하지 않습니다.");
+        return;
       }
 
-      ctx.restore();
+      await deleteDoc(doc(db, "posts", selectedPostId));
+      alert("삭제되었습니다.");
+      detailDialog.close();
+      await loadPosts();
     }
 
-    function animate() {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
+    postForm.addEventListener("submit", createPost);
+    filterCategory.addEventListener("change", loadPosts);
+    commentForm.addEventListener("submit", createComment);
+    deleteBtn.addEventListener("click", deletePost);
+    closeDialog.addEventListener("click", () => detailDialog.close());
 
-      const head = segments[0];
-      head.x += (mouse.x - head.x) * 0.17;
-      head.y += (mouse.y - head.y) * 0.17;
-
-      for (let i = 1; i < segments.length; i++) {
-        const prev = segments[i - 1];
-        const seg = segments[i];
-
-        const dx = prev.x - seg.x;
-        const dy = prev.y - seg.y;
-        const angle = Math.atan2(dy, dx);
-
-        seg.angle = angle;
-
-        const targetX = prev.x - Math.cos(angle) * spacing;
-        const targetY = prev.y - Math.sin(angle) * spacing;
-
-        seg.x += (targetX - seg.x) * 0.32;
-        seg.y += (targetY - seg.y) * 0.32;
-      }
-
-      head.angle = Math.atan2(mouse.y - head.y, mouse.x - head.x);
-
-      for (let i = segments.length - 1; i >= 0; i--) {
-        drawSegment(segments[i], i);
-      }
-
-      requestAnimationFrame(animate);
-    }
-
-    animate();
+    loadPosts();
   </script>
 </body>
 </html>
